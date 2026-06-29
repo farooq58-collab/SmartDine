@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeaturesSection from './components/FeaturesSection';
 import ARSection from './components/ARSection';
+import ARDemoVideo from './components/ARDemoVideo';
 import TrendDashboard from './components/TrendDashboard';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
@@ -15,6 +16,7 @@ function App() {
       <main className="flex-grow">
         <Hero />
         <ARSection />
+        <ARDemoVideo />
         <FeaturesSection />
         <TrendDashboard />
         <HowItWorks />
