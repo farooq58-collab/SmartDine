@@ -6,6 +6,9 @@ import ARSection from './components/ARSection';
 import ARDemoVideo from './components/ARDemoVideo';
 import TrendDashboard from './components/TrendDashboard';
 import HowItWorks from './components/HowItWorks';
+import ROICalculator from './components/ROICalculator';
+import Testimonials from './components/Testimonials';
+import FAQSection from './components/FAQSection';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 
@@ -18,9 +21,12 @@ function App() {
         <ARSection />
         <ARDemoVideo />
         <FeaturesSection />
+        <ROICalculator />
         <TrendDashboard />
         <HowItWorks />
+        <Testimonials />
         <Pricing />
+        <FAQSection />
       </main>
       <Footer />
     </div>
