@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 // Scenario scripts
 const scenarios = {
@@ -135,23 +136,21 @@ export default function Hero() {
 
           {/* Action Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-            <a
-              href="#pricing"
-              onClick={scrollToPricing}
+            <Link
+              to="/register"
               className="w-full sm:w-auto flex-grow inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-extrabold text-navy bg-emerald hover:bg-emerald-dark transition-all duration-300 shadow-lg shadow-emerald/20 hover:scale-[1.03] active:scale-[0.98]"
             >
-              See Pricing Plans
+              Start Free Trial
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
+            </Link>
             <a
-              href="https://wa.me/923342865069"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#pricing"
+              onClick={scrollToPricing}
               className="w-full sm:w-auto flex-grow inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-extrabold text-white border border-white/20 hover:bg-white/5 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
             >
-              Book a Call
+              See Pricing Plans
             </a>
           </div>
         </div>

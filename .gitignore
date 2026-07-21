@@ -22,3 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backend
+backend/.env
+backend/smartdine.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+*.pyc
+__pycache__/
+
+# Python virtual environments
+.venv/
+venv/
+backend/venv/
+**/venv/
+**/.venv/
+

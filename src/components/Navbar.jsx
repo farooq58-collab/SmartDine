@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,29 +132,55 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right: CTA Button */}
-        <div className="flex items-center">
-          <a
-            href="https://wa.me/923342865069"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-navy bg-emerald hover:bg-emerald-dark transition-all duration-300 shadow-md shadow-emerald/20 hover:scale-[1.03] active:scale-[0.98] group overflow-hidden"
-          >
-            <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <span className="relative flex items-center">
-              Book a Demo
-              <svg
-                className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+        {/* Right: Auth Buttons */}
+        <div className="flex items-center gap-3">
+          {isAuthenticated ? (
+            <button
+              onClick={() => navigate('/dashboard')}
+              className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-navy bg-emerald hover:bg-emerald-dark transition-all duration-300 shadow-md shadow-emerald/20 hover:scale-[1.03] active:scale-[0.98] group overflow-hidden"
+            >
+              <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <span className="relative flex items-center">
+                Dashboard
+                <svg
+                  className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </button>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-300 hover:text-white border border-white/10 hover:bg-white/5 transition-all duration-300"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </span>
-          </a>
+                Log In
+              </Link>
+              <Link
+                to="/register"
+                className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-navy bg-emerald hover:bg-emerald-dark transition-all duration-300 shadow-md shadow-emerald/20 hover:scale-[1.03] active:scale-[0.98] group overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <span className="relative flex items-center">
+                  Start Free
+                  <svg
+                    className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
